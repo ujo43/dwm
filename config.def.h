@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Signal",   NULL,       NULL,       1 << 8,       0,           -1 },
+	{ NULL,       NULL, "newsboat",       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -104,9 +105,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,            	        XF86XK_AudioLowerVolume, spawn,  {.v = downvol } },
-	{ 0,         	                XF86XK_AudioMute, spawn,	 {.v = mutevol } },
-	{ 0,	                        XF86XK_AudioRaiseVolume, spawn,  {.v = upvol   } },
+	{ 0,            	        XF86XK_AudioLowerVolume, spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,         	                XF86XK_AudioMute, spawn,	 SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)")},
+	{ 0,	                        XF86XK_AudioRaiseVolume, spawn,  SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)")},
 };
 
 /* button definitions */
