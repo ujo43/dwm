@@ -33,7 +33,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Signal",   NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Emacs",    NULL,	  NULL,       1 << 2,       0,           -1 },
+	{ "Emacs",    NULL,	      NULL,       1 << 2,       0,           -1 },
+	{ "Thunderbird",   NULL,       NULL,       1 << 3,       0,           -1 },
 };
 
 /* layout(s) */
@@ -69,8 +70,8 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,			XK_b,      spawn,          {.v = firefoxcmd } },
-	{ MODKEY,			XK_p,      spawn,          {.v = passmenucmd } },
+	{ MODKEY,		 	            XK_b,      spawn,          {.v = firefoxcmd } },
+	{ MODKEY,			            XK_p,      spawn,          {.v = passmenucmd } },
 	{ MODKEY,                       XK_B,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -105,8 +106,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,            	        XF86XK_AudioLowerVolume, spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
-	{ 0,         	                XF86XK_AudioMute, spawn,	 SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)")},
+	{ 0,            	            XF86XK_AudioLowerVolume, spawn,  SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,         	                XF86XK_AudioMute, spawn,	     SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)")},
 	{ 0,	                        XF86XK_AudioRaiseVolume, spawn,  SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)")},
 };
 
